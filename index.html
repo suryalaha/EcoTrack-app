@@ -56,11 +56,13 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark transition-colors duration-300">
     <div id="app-root"></div>
+    <div id="modal-container"></div>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
 
     <script type="importmap">
     {
@@ -1481,7 +1483,6 @@
                         </div>
                     </main>
                 </div>
-                 <div id="modal-container"></div>
                 `;
             }
 
@@ -1885,9 +1886,10 @@
                 const sizeMap = { 'md': 'max-w-md', 'lg': 'max-w-lg', 'xl': 'max-w-xl' };
                 AppState.isModalOpen = true;
                 const modalContainer = document.getElementById('modal-container');
+                if (!modalContainer) return;
                 modalContainer.innerHTML = `
                 <div class="modal-overlay" id="modal-overlay">
-                    <div class="modal-content bg-card-light dark:bg-card-dark rounded-xl shadow-2xl w-full ${sizeMap[size]} m-4 border border-border-light dark:border-border-dark">
+                    <div class="modal-content bg-card-light dark:bg-card-dark rounded-xl shadow-2xl w-full ${sizeMap[size]} border border-border-light dark:border-border-dark">
                         <div class="flex justify-between items-center p-4 border-b border-border-light dark:border-border-dark">
                             <h3 class="text-lg font-bold text-heading-light dark:text-heading-dark">${title}</h3>
                             <button id="close-modal-btn" class="p-1 rounded-full text-secondary-dark hover:bg-gray-200 dark:hover:bg-gray-700"><i data-lucide="x" class="w-5 h-5"></i></button>
@@ -1972,7 +1974,7 @@
                 document.getElementById('sell-chat-form').onsubmit = handleSellChatMessageSubmit;
             }
             
-            function renderAppSkeleton(headerHTML, mainContentHTML, bottomNavHTML, modalHTML = '') {
+            function renderAppSkeleton(headerHTML, mainContentHTML, bottomNavHTML) {
                 return `
                 <div class="w-full max-w-lg mx-auto bg-background-light dark:bg-background-dark shadow-2xl flex flex-col h-screen font-sans">
                     ${headerHTML}
@@ -1981,7 +1983,6 @@
                     </main>
                     ${bottomNavHTML}
                 </div>
-                <div id="modal-container">${modalHTML}</div>
                 `;
             }
             
@@ -2027,7 +2028,7 @@
                     currentChartInstance = null;
                 }
                 
-                if (AppState.isModalOpen && document.getElementById('modal-container').innerHTML !== '') {
+                if (AppState.isModalOpen && document.getElementById('modal-container')?.hasChildNodes()) {
                     return; 
                 }
                 closeModal();
@@ -2104,7 +2105,7 @@
                                     animation: { animateScale: true, animateRotate: true },
                                     plugins: { 
                                         legend: { display: false }, 
-                                        tooltip: { enabled: true, backgroundColor: AppState.theme === 'dark' ? '#334155' : '#333', titleColor: '#fff', bodyColor: '#fff', cornerRadius: 8, padding: 10,
+                                        tooltip: { enabled: true, backgroundColor: AppState.theme === 'dark' ? '#333' : '#333', titleColor: '#fff', bodyColor: '#fff', cornerRadius: 8, padding: 10,
                                             callbacks: { label: (context) => `${context.label}: ${context.raw} Tons` }
                                         },
                                         centerText: { display: true }
@@ -2738,7 +2739,7 @@
                 oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
 
                 const userPayments = AppState.payments
-                    .filter(p => p.householdId === user.householdId && new Date(p.date) >= oneYearAgo)
+                    .filter(p => p.householdId === user.householdId && new Date(p.date) >= oneYearAgo && p.status === 'Paid')
                     .sort((a,b) => new Date(b.date) - new Date(a.date));
 
                 doc.setFontSize(18);
@@ -2748,7 +2749,7 @@
                 doc.text(`Date Generated: ${new Date().toLocaleDateString()}`, 14, 36);
 
                 if (userPayments.length === 0) {
-                    doc.text('No payments found in the last year.', 14, 50);
+                    doc.text('No paid transactions found in the last year.', 14, 50);
                 } else {
                     const tableData = userPayments.map(p => [
                         p.id,

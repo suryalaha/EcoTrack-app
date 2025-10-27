@@ -10,5 +10,21 @@
 .dark .password-strength-meter .strength-weak { background-color: #ef4444; }
 .dark .password-strength-meter .strength-medium { background-color: #f59e0b; }
 .dark .password-strength-meter .strength-strong { background-color: #22c55e; }
-.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 50; animation: fade-in 0.3s ease-out; }
-.modal-content { animation: scale-in 0.3s ease-out; }
+
+/* Modal Styles for proper centering and responsiveness */
+.modal-overlay { 
+    position: fixed; 
+    inset: 0; 
+    background-color: rgba(0,0,0,0.6); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 9999; /* Increased z-index to ensure it's on top of all other elements */
+    animation: fade-in 0.3s ease-out; 
+    padding: 1rem; /* Add padding for small screen edges */
+}
+.modal-content { 
+    animation: scale-in 0.3s ease-out; 
+    max-height: 95vh; /* Prevent overflow on tall modals */
+    overflow-y: auto; /* Allow scrolling for tall content */
+}

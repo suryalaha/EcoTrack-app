@@ -1,0 +1,14 @@
+.chart-container { position: relative; height: 224px; width: 100%; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.password-strength-meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; height: 4px; }
+.password-strength-meter div { background-color: #e5e7eb; transition: background-color 0.3s; }
+.password-strength-meter .strength-weak { background-color: #ef4444; }
+.password-strength-meter .strength-medium { background-color: #f59e0b; }
+.password-strength-meter .strength-strong { background-color: #22c55e; }
+.dark .password-strength-meter div { background-color: #334155; }
+.dark .password-strength-meter .strength-weak { background-color: #ef4444; }
+.dark .password-strength-meter .strength-medium { background-color: #f59e0b; }
+.dark .password-strength-meter .strength-strong { background-color: #22c55e; }
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 50; animation: fade-in 0.3s ease-out; }
+.modal-content { animation: scale-in 0.3s ease-out; }

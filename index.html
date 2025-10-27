@@ -52,22 +52,7 @@
         },
       }
     </script>
-    <style>
-        .chart-container { position: relative; height: 224px; width: 100%; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .password-strength-meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; height: 4px; }
-        .password-strength-meter div { background-color: #e5e7eb; transition: background-color 0.3s; }
-        .password-strength-meter .strength-weak { background-color: #ef4444; }
-        .password-strength-meter .strength-medium { background-color: #f59e0b; }
-        .password-strength-meter .strength-strong { background-color: #22c55e; }
-        .dark .password-strength-meter div { background-color: #334155; }
-        .dark .password-strength-meter .strength-weak { background-color: #ef4444; }
-        .dark .password-strength-meter .strength-medium { background-color: #f59e0b; }
-        .dark .password-strength-meter .strength-strong { background-color: #22c55e; }
-        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 50; animation: fade-in 0.3s ease-out; }
-        .modal-content { animation: scale-in 0.3s ease-out; }
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-background-light dark:bg-background-dark transition-colors duration-300">
     <div id="app-root"></div>
@@ -117,7 +102,7 @@
             const GRAM_PANCHAYATS = ['ANDAL', 'DAKSHINKHANDA', 'KAJORA', 'KHANDRA', 'MADANPUR', 'RAMPRASADPUR', 'SHRIRAMPUR', 'UKHRA'];
             
             const NGO_NAME = "Andal Gray to Green";
-            const UPI_ID = "9635929052@ibl";
+            const UPI_ID = "suryalaha@upi";
             const SUPPORT_PHONE_NUMBER = "9635929052";
             const SUPPORT_EMAIL = "shyantanbiswas7@gmail.com";
             
@@ -181,7 +166,7 @@
                     "welcomeBack": "वापसी पर स्वागत है!", "mobileNumber": "मोबाइल नंबर", "emailAddress": "ईमेल पता", "password": "पासवर्ड",
                     "rememberMe": "मुझे याद रखें", "login": "लॉगिन", "forgotPassword": "पासवर्ड भूल गए? कृपया सहायता के लिए प्रशासक से संपर्क करें।",
                     "createAccount": "खाता बनाएं", "fullName": "पूरा नाम", "confirmPassword": "पासवर्ड की पुष्टि करें", "next": "अगला",
-                    "yourDetails": "आपका विवरण", "familyMembers": "परिवार के सदस्यों की संख्या", "area": "क्षेत्र / मोहल्ला", "landmark": "निकटतम लैंडमार्क",
+                    "yourDetails": "आपका विवरण", "familyMembers": "परिवार के सदस्यों की संख्या", "area": "क्षेत्र / मोहल्ला", "landmark": "निकटतम लैंडমার্ক",
                     "pincode": "क्षेत्र पिनकोड", "completeSignup": "साइन अप पूरा करें", "back": "वापस", "verification": "सत्यापन",
                     "adminVerification": "प्रशासक का मोबाइल नंबर दर्ज करें।", "sendOtp": "ओटीपी भेजें", "verifyOtp": "ओटीपी सत्यापित करें",
                     "otpSentTo": "{{identifier}} के लिए ओटीपी भेजा गया।", "change": "बदलें", "otpPlaceholder": "6-अंकीय ओटीपी",
@@ -304,10 +289,11 @@
                     const initialUsers = [
                         { name: 'SHYANTAN BISWAS', householdId: 'ADM-SHYA-9052', identifier: '9635929052', password: 'Password@123', role: 'admin', status: 'active', hasGreenBadge: true, bookingReminders: true, profilePicture: '', email: 'shyantanbiswas7@gmail.com', createdAt: new Date(2024, 5, 1), outstandingBalance: 75, familySize: 4, address: { area: 'Main Street', landmark: 'City Hall', pincode: '700001' }, gramPanchayat: 'KAJORA' },
                         { name: 'PROSENJIT MAJI', householdId: 'ADM-PROS-3897', identifier: '8016233897', password: 'Password@123', role: 'admin', status: 'active', hasGreenBadge: true, bookingReminders: true, profilePicture: '', email: 'prosenjit.maji@andalg2g.com', createdAt: new Date(2024, 5, 1), outstandingBalance: 0, familySize: 1, address: { area: 'Admin Area', landmark: 'Admin Building', pincode: '000000' }, gramPanchayat: 'ANDAL' },
-                        { name: 'Jane Doe', householdId: 'HH-JANE-9876', identifier: '9876543210', password: 'password', role: 'household', status: 'active', hasGreenBadge: false, bookingReminders: true, profilePicture: '', email: 'jane.doe@example.com', createdAt: new Date(2024, 6, 10), outstandingBalance: 150, familySize: 6, address: { area: 'Willow Creek', landmark: 'Near Park', pincode: '123456' }, gramPanchayat: 'UKHRA' },
+                        { name: 'Surya Laha', householdId: 'ADM-SURY-1746', identifier: '9064201746', password: 'Password@123', role: 'admin', status: 'active', hasGreenBadge: true, bookingReminders: true, profilePicture: '', email: 'ecotrack@andalgraytogreen.in', createdAt: new Date(2024, 5, 1), outstandingBalance: 0, familySize: 1, address: { area: 'Admin Area', landmark: 'Admin Building', pincode: '000000' }, gramPanchayat: 'ANDAL' },
+                        { name: 'Jane Doe', householdId: 'HH-JANE-9876', identifier: '9876543210', password: 'password', role: 'household', status: 'active', hasGreenBadge: false, bookingReminders: true, profilePicture: '', email: 'jane.doe@example.com', createdAt: new Date(2024, 6, 10), outstandingBalance: 150, familySize: 6, address: { area: 'Willow Creek', landmark: 'Near Park', pincode: '123456' }, gramPanchayat: 'UKHRA', consecutiveMixedLogs: 1, pushNotificationsEnabled: true },
                         { name: 'Ravi Kumar', householdId: 'EMP-RAVI-1234', identifier: '8888888888', password: 'Password@123', role: 'employee', status: 'active', createdAt: new Date(2024, 5, 2), attendanceStatus: 'on_leave', familySize: 1, address: { area: 'Staff Quarters', landmark: 'Unit 5', pincode: '110022' }, outstandingBalance: 0, email: 'ravi.k@staff.com', gramPanchayat: 'KHANDRA', lastLocation: { lat: 23.681, lng: 87.215 } },
                         { name: 'Suresh Singh', householdId: 'CPT-SURE-5678', identifier: '9999999999', password: 'Password@123', role: 'captain', status: 'active', createdAt: new Date(2024, 5, 3), attendanceStatus: 'on_leave', familySize: 1, address: { area: 'Staff Quarters', landmark: 'Unit 8', pincode: '110022' }, outstandingBalance: 0, email: 'suresh.s@staff.com', gramPanchayat: 'DAKSHINKHANDA', profilePicture: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop', lastLocation: { lat: 23.685, lng: 87.220 } },
-                        { name: 'Amit Das', householdId: 'SNW-AMIT-4321', identifier: '6666666666', password: 'Password@123', role: 'sanitaryworker', status: 'active', createdAt: new Date(2024, 5, 4), attendanceStatus: 'present', familySize: 1, address: { area: 'Staff Quarters', landmark: 'Unit 9', pincode: '110022' }, outstandingBalance: 0, email: 'amit.d@staff.com', gramPanchayat: 'KAJORA', lastLocation: { lat: 23.689, lng: 87.225 } },
+                        { name: 'Amit Das', householdId: 'SNW-AMIT-4321', identifier: '6666666666', password: 'Password@123', role: 'sanitaryworker', status: 'active', createdAt: new Date(2024, 5, 4), attendanceStatus: 'present', familySize: 1, address: { area: 'Staff Quarters', landmark: 'Unit 9', pincode: '110022' }, outstandingBalance: 0, email: 'amit.d@staff.com', gramPanchayat: 'UKHRA', lastLocation: { lat: 23.689, lng: 87.225 }, lastLocationUpdate: new Date() },
                     ];
                     const initialPayments = [
                         { id: 'TXN789123', householdId: 'ADM-SHYA-9052', date: new Date(2024, 6, 15, 10, 30, 12), amount: 75, status: 'Paid' },
@@ -329,6 +315,9 @@
                         { id: 'MSG-001', recipientId: 'HH-JANE-9876', text: 'Hi Jane, please ensure your waste is properly segregated for the next pickup. Thank you!', timestamp: new Date(2024, 6, 22, 11, 45), read: false },
                         { id: 'MSG-002', recipientId: 'ADM-SHYA-9052', text: 'Your "Driver Behavior" complaint (CMPT-002) has been reviewed. We have taken action and apologize for the inconvenience.', timestamp: new Date(), read: true },
                     ];
+                     const initialWasteLogs = [
+                        { householdId: 'HH-JANE-9876', type: 'Mixed Waste', date: new Date(new Date().setDate(new Date().getDate() - 1)) }
+                    ];
                     const initialSellRequests = [
                         { id: 'SELL-001', householdId: 'ADM-SHYA-9052', date: new Date(2024, 6, 25), materials: { plastic: 5, paper: 2 }, weightKg: 7, status: 'Approved', estimatedCost: 150 },
                         { id: 'SELL-002', householdId: 'HH-JANE-9876', date: new Date(), materials: { glass: 10, steel: 3 }, weightKg: 13, status: 'Pending', estimatedCost: 0 }
@@ -343,7 +332,7 @@
                     this.complaints = this.loadFromStorage('complaints', initialComplaints);
                     this.bookings = this.loadFromStorage('bookings', initialBookings);
                     this.messages = this.loadFromStorage('messages', initialMessages);
-                    this.wasteLogs = this.loadFromStorage('wasteLogs', []);
+                    this.wasteLogs = this.loadFromStorage('wasteLogs', initialWasteLogs);
                     this.sellRequests = this.loadFromStorage('sellRequests', initialSellRequests);
                     this.sellRequestMessages = this.loadFromStorage('sellRequestMessages', initialSellRequestMessages);
                     this.broadcastMessage = this.loadFromStorage('broadcastMessage', "Eco Track: A friendly reminder that monthly payments are due by the end of the week. Thank you!");
@@ -424,7 +413,7 @@
                     const balance = familySize > this.subscriptionPlans.largeFamilyThreshold ? this.subscriptionPlans.largeFamily : this.subscriptionPlans.standard;
                     const newUser = { name, householdId, identifier, password, role: 'household', status: 'active', hasGreenBadge: false,
                         bookingReminders: true, pushNotificationsEnabled: true, profilePicture: '', email, createdAt: new Date(),
-                        outstandingBalance: balance, familySize, address, gramPanchayat, loginStreak: 1, lastStreakIncrement: new Date() };
+                        outstandingBalance: balance, familySize, address, gramPanchayat, loginStreak: 1, lastStreakIncrement: new Date(), consecutiveMixedLogs: 0 };
                     this.addUser(newUser);
                     sessionStorage.setItem('ecotrack-user-id', householdId);
                     this.loggedInUserId = householdId;
@@ -432,7 +421,7 @@
                     return { success: true, user: newUser };
                 },
                 sendAdminOtp(identifier) {
-                    const adminIdentifiers = ['9635929052', '8016233897'];
+                    const adminIdentifiers = ['9635929052', '8016233897', '9064201746'];
                     if (!adminIdentifiers.includes(identifier)) {
                         return { success: false, message: 'This mobile number is not registered for admin access.' };
                     }
@@ -699,6 +688,43 @@
                 </nav>`;
             }
 
+            function renderWasteLogger(user) {
+                const todayStr = new Date().toISOString().split('T')[0];
+                const hasLoggedToday = AppState.wasteLogs.some(log => 
+                    log.householdId === user.householdId && 
+                    new Date(log.date).toISOString().split('T')[0] === todayStr
+                );
+
+                if (hasLoggedToday) {
+                    return `
+                    <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-md border border-border-light dark:border-border-dark text-center">
+                        <h3 class="font-semibold text-lg mb-2 flex items-center justify-center text-heading-light dark:text-heading-dark"><i data-lucide="check-check" class="mr-2 text-primary"></i>Log Your Waste</h3>
+                        <p class="text-success font-semibold">Thanks! You've logged your waste for today.</p>
+                    </div>`;
+                }
+
+                return `
+                <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-md border border-border-light dark:border-border-dark">
+                    <h3 class="font-semibold text-lg mb-3 text-heading-light dark:text-heading-dark">Log Your Waste</h3>
+                    <p class="text-sm text-text-light dark:text-text-dark mb-4">Log your daily waste type. A fine of ₹100 is applied after three consecutive "Mixed Waste" logs.</p>
+                    <div class="grid grid-cols-3 gap-3 text-center">
+                        <button data-action="log-waste" data-waste-type="Wet" class="p-3 bg-green-100 dark:bg-green-900/50 rounded-lg hover:bg-green-200 dark:hover:bg-green-900/80 transition-colors">
+                            <span class="text-3xl">🍎</span>
+                            <span class="block text-sm font-semibold text-green-800 dark:text-green-200 mt-1">Wet Waste</span>
+                        </button>
+                        <button data-action="log-waste" data-waste-type="Dry" class="p-3 bg-blue-100 dark:bg-blue-900/50 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-900/80 transition-colors">
+                            <span class="text-3xl">📦</span>
+                            <span class="block text-sm font-semibold text-blue-800 dark:text-blue-200 mt-1">Dry Waste</span>
+                        </button>
+                        <button data-action="log-waste" data-waste-type="Mixed" class="p-3 bg-red-100 dark:bg-red-900/50 rounded-lg hover:bg-red-200 dark:hover:bg-red-900/80 transition-colors">
+                            <span class="text-3xl">🗑️</span>
+                            <span class="block text-sm font-semibold text-red-800 dark:text-red-200 mt-1">Mixed Waste</span>
+                        </button>
+                    </div>
+                    <p class="text-xs text-center text-secondary-dark mt-3">Consecutive 'Mixed Waste' logs: <span class="font-bold">${user.consecutiveMixedLogs || 0} / 3</span>.</p>
+                </div>`;
+            }
+
             function renderDashboard(user, bookings) {
                 const t = AppState.t.bind(AppState);
                 const upcomingBooking = bookings.find(b => new Date(b.date) > new Date() && b.status === 'Scheduled');
@@ -730,6 +756,8 @@
                         </div>
                     </div>
                   </div>
+
+                  ${renderWasteLogger(user)}
                   
                   ${upcomingBooking ? `
                     <div class="bg-info/10 dark:bg-info/20 border-l-4 border-info text-info p-4 rounded-r-lg shadow-md" role="alert" style="animation-delay: 200ms">
@@ -769,7 +797,7 @@
                    <div class="bg-gradient-to-br from-primary-dark to-accent text-white p-5 rounded-xl shadow-lg text-center transition-all hover:shadow-xl hover:-translate-y-1" style="animation-delay: 500ms">
                         <h3 class="font-bold text-lg">Support Our NGO!</h3>
                         <p class="text-sm mt-1 mb-3 opacity-90">Watch a 30-second ad to contribute to our cause. It's optional but greatly appreciated!</p>
-                        <button id="watch-ad-btn" class="bg-white/90 text-primary-dark font-bold py-2 px-5 rounded-full flex items-center justify-center mx-auto hover:bg-white transition-transform transform hover:scale-105 shadow-md hover:shadow-lg">
+                        <button data-action="watch-ad-btn" class="bg-white/90 text-primary-dark font-bold py-2 px-5 rounded-full flex items-center justify-center mx-auto hover:bg-white transition-transform transform hover:scale-105 shadow-md hover:shadow-lg">
                             <i data-lucide="video" class="mr-2"></i> Watch Ad
                         </button>
                    </div>
@@ -862,7 +890,7 @@
                 const { isSignup, step, error, formData, passwordStrength } = AppState.authFlowState;
                 const t = AppState.t.bind(AppState);
 
-                const renderBackButton = (action) => `<button data-authaction="${action}" class="text-sm text-primary hover:underline">&larr; ${t('back')}</button>`;
+                const renderBackButton = (action) => `<button type="button" data-authaction="${action}" class="text-sm text-primary hover:underline">&larr; ${t('back')}</button>`;
                 const renderError = (err) => err ? `<div class="bg-danger/10 text-danger text-sm p-3 rounded-md animate-fade-in-down">${escapeHTML(err)}</div>` : '';
                 
                 let contentHTML = '';
@@ -882,7 +910,7 @@
                                 <div><label for="confirmPassword" class="block text-sm font-medium text-text-light dark:text-text-dark">${t('confirmPassword')}</label><input type="password" id="confirmPassword" required class="mt-1 block w-full px-3 py-2 bg-transparent border border-border-light dark:border-border-dark rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></div>
                                 <button type="submit" class="w-full bg-primary text-white font-bold py-2.5 px-4 rounded-lg shadow-md hover:bg-primary-dark transition">${t('next')}</button>
                             </form>
-                            <p class="mt-6 text-center text-sm">Already have an account? <button data-authaction="show-login" class="font-semibold text-primary hover:underline">${t('login')}</button></p>
+                            <p class="mt-6 text-center text-sm">Already have an account? <button type="button" data-authaction="show-login" class="font-semibold text-primary hover:underline">${t('login')}</button></p>
                         `;
                     } else { // Step 2: Details
                         contentHTML = `
@@ -918,7 +946,7 @@
                             <button type="submit" class="w-full bg-primary text-white font-bold py-2.5 px-4 rounded-lg shadow-md hover:bg-primary-dark transition">${t('login')}</button>
                         </form>
                         <p class="mt-4 text-center text-xs text-secondary-dark">${t('forgotPassword')}</p>
-                        <p class="mt-6 text-center text-sm">Don't have an account? <button data-authaction="show-signup" class="font-semibold text-primary hover:underline">${t('createAccount')}</button></p>
+                        <p class="mt-6 text-center text-sm">Don't have an account? <button type="button" data-authaction="show-signup" class="font-semibold text-primary hover:underline">${t('createAccount')}</button></p>
                     `;
                 }
 
@@ -926,7 +954,7 @@
                 <div class="w-full max-w-md mx-auto animate-scale-in">
                     ${renderAuthHeader()}
                      <div class="bg-card-light/80 dark:bg-card-dark/70 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-white/20">
-                        <div class="text-left mb-6"><button data-authaction="back-to-selector" class="text-sm text-primary hover:underline">&larr; ${t('back')}</button></div>
+                        <div class="text-left mb-6"><button type="button" data-authaction="back-to-selector" class="text-sm text-primary hover:underline">&larr; ${t('back')}</button></div>
                         ${contentHTML}
                          <p class="text-center text-xs text-text-light dark:text-text-dark mt-6">powered by <span class="font-semibold bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-500 text-transparent bg-clip-text bg-size-300 animate-gradient-pan">${NGO_NAME}</span></p>
                     </div>
@@ -953,7 +981,7 @@
                     const whatsappUrl = `https://wa.me/91${otpIdentifier}?text=${encodeURIComponent(`Your Eco Track admin login OTP is: ${otp}`)}`;
                     contentHTML = `
                         <h2 class="text-2xl font-bold mb-1 text-heading-light dark:text-heading-dark">${t('verifyOtp')}</h2>
-                        <p class="text-text-light dark:text-text-dark mb-2">${t('otpSentTo', { identifier: otpIdentifier })} <button data-authaction="admin-change-identifier" class="text-xs text-primary hover:underline">(${t('change')})</button></p>
+                        <p class="text-text-light dark:text-text-dark mb-2">${t('otpSentTo', { identifier: otpIdentifier })} <button type="button" data-authaction="admin-change-identifier" class="text-xs text-primary hover:underline">(${t('change')})</button></p>
                         
                         <div class="bg-blue-100 dark:bg-blue-900/30 border-l-4 border-blue-500 text-blue-700 dark:text-blue-300 p-3 rounded-r-lg text-sm mb-4" role="alert">
                           <p class="font-bold">Login with WhatsApp:</p>
@@ -969,7 +997,7 @@
                              <button type="submit" class="w-full bg-accent text-white font-bold py-2.5 px-4 rounded-lg shadow-md hover:bg-accent/80 transition">${t('verifyAndProceed')}</button>
                         </form>
                         <div class="mt-4 text-center text-sm">
-                            ${resendTimer > 0 ? `<span id="resend-timer" class="text-secondary-dark">${t('resendOtpIn', { count: resendTimer })}</span>` : `<button id="resend-btn" data-authaction="admin-resend-otp" class="text-primary hover:underline">${t('resendOtp')}</button>`}
+                            ${resendTimer > 0 ? `<span id="resend-timer" class="text-secondary-dark">${t('resendOtpIn', { count: resendTimer })}</span>` : `<button type="button" id="resend-btn" data-authaction="admin-resend-otp" class="text-primary hover:underline">${t('resendOtp')}</button>`}
                         </div>
                     `;
                 }
@@ -978,7 +1006,7 @@
                 <div class="w-full max-w-md mx-auto animate-scale-in">
                     ${renderAuthHeader()}
                     <div class="bg-card-light/80 dark:bg-card-dark/70 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-white/20">
-                        <div class="text-left mb-6"><button data-authaction="back-to-selector" class="text-sm text-primary hover:underline">&larr; ${t('back')}</button></div>
+                        <div class="text-left mb-6"><button type="button" data-authaction="back-to-selector" class="text-sm text-primary hover:underline">&larr; ${t('back')}</button></div>
                         ${contentHTML}
                          <p class="text-center text-xs text-text-light dark:text-text-dark mt-6">powered by <span class="font-semibold bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-500 text-transparent bg-clip-text bg-size-300 animate-gradient-pan">${NGO_NAME}</span></p>
                     </div>
@@ -1004,7 +1032,7 @@
                 <div class="w-full max-w-md mx-auto animate-scale-in">
                     ${renderAuthHeader()}
                     <div class="bg-card-light/80 dark:bg-card-dark/70 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-white/20">
-                        <div class="text-left mb-6"><button data-authaction="back-to-selector" class="text-sm text-primary hover:underline">&larr; ${t('back')}</button></div>
+                        <div class="text-left mb-6"><button type="button" data-authaction="back-to-selector" class="text-sm text-primary hover:underline">&larr; ${t('back')}</button></div>
                         ${contentHTML}
                          <p class="text-center text-xs text-text-light dark:text-text-dark mt-6">powered by <span class="font-semibold bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-500 text-transparent bg-clip-text bg-size-300 animate-gradient-pan">${NGO_NAME}</span></p>
                     </div>
@@ -1062,7 +1090,7 @@
                                             <strong>Password:</strong>
                                             <div class="flex items-center">
                                                 <input type="password" value="${escapeHTML(user.password)}" readonly class="flex-grow bg-transparent text-text-light dark:text-text-dark" id="pass-${user.householdId}">
-                                                <button data-password-toggle="${user.householdId}" class="p-1 text-secondary-dark hover:text-primary"><i data-lucide="eye" class="w-4 h-4"></i></button>
+                                                <button type="button" data-password-toggle="${user.householdId}" class="p-1 text-secondary-dark hover:text-primary"><i data-lucide="eye" class="w-4 h-4"></i></button>
                                             </div>
                                         </div>
                                         <div class="col-span-1 md:col-span-2">
@@ -1076,9 +1104,11 @@
                                         </div>
                                     </div>
                                     <div class="mt-4 pt-4 border-t border-border-light dark:border-border-dark flex items-center space-x-2">
-                                         <button class="text-xs bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Message</button>
-                                         <button class="text-xs bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
-                                         ${user.status === 'active' ? `<button class="text-xs bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Block</button>` : `<button class="text-xs bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Unblock</button>`}
+                                         <button data-action="admin-message-user" data-user-id="${user.householdId}" class="text-xs bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Message</button>
+                                         <button data-action="admin-edit-user" data-user-id="${user.householdId}" class="text-xs bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
+                                         <button data-action="admin-toggle-block" data-user-id="${user.householdId}" class="text-xs ${user.status === 'active' ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'} text-white px-3 py-1 rounded">
+                                            ${user.status === 'active' ? 'Block' : 'Unblock'}
+                                         </button>
                                     </div>
                                 </div>
                             `;
@@ -1321,6 +1351,11 @@
 
             function renderAdminApp() {
                 const user = AppState.currentUser();
+                if (!user) {
+                    AppState.logout();
+                    render();
+                    return;
+                }
                 const t = AppState.t.bind(AppState);
                 const navItems = [
                     { view: AdminView.Dashboard, icon: 'layout-dashboard', label: 'Dashboard' },
@@ -1387,6 +1422,10 @@
                 const isTracking = locationWatchId !== null;
                 const attendanceColor = user.attendanceStatus === 'present' ? 'text-success' : 'text-danger';
                 const roleDisplay = t(`role_${user.role}`);
+                const now = new Date();
+                const hour = now.getHours();
+                const isWorkHours = hour >= 10 && hour < 16;
+
 
                 return `
                 <div class="w-full max-w-lg mx-auto bg-background-light dark:bg-background-dark shadow-2xl flex flex-col h-screen font-sans">
@@ -1429,9 +1468,15 @@
                                     <span id="tracking-status-text" class="font-semibold ${isTracking ? 'text-success' : 'text-danger'}">${isTracking ? 'Tracking Active' : 'Tracking Inactive'}</span>
                                 </div>
                                 
-                                <button id="toggle-tracking-btn" class="w-full font-bold py-3 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105 text-lg flex items-center justify-center text-white ${isTracking ? 'bg-danger hover:bg-red-600' : 'bg-success hover:bg-green-600'}">
-                                    ${isTracking ? '<i data-lucide="pause-circle" class="mr-3"></i> End Work Day' : '<i data-lucide="play-circle" class="mr-3"></i> Start Work Day'}
-                                </button>
+                                ${isWorkHours ? `
+                                    <button id="toggle-tracking-btn" class="w-full font-bold py-3 px-4 rounded-lg shadow-lg transition-all transform hover:scale-105 text-lg flex items-center justify-center text-white ${isTracking ? 'bg-danger hover:bg-red-600' : 'bg-success hover:bg-green-600'}">
+                                        ${isTracking ? '<i data-lucide="pause-circle" class="mr-3"></i> End Work Day' : '<i data-lucide="play-circle" class="mr-3"></i> Start Work Day'}
+                                    </button>
+                                ` : `
+                                    <div class="text-sm bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-300 p-3 rounded-lg">
+                                        Tracking is only available during work hours (10 AM - 4 PM).
+                                    </div>
+                                `}
                             </div>
                         </div>
                     </main>
@@ -1631,6 +1676,31 @@
                         </div>
                     </div>
 
+                    <!-- Settings -->
+                     <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-md border border-border-light dark:border-border-dark">
+                        <h3 class="font-semibold text-lg text-heading-light dark:text-heading-dark mb-3">Settings & Reports</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <label for="push-notifications" class="font-medium text-text-light dark:text-text-dark">Push Notifications</label>
+                                <button data-action="toggle-push"
+                                        class="relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200
+                                               ${user.pushNotificationsEnabled ? 'bg-primary' : 'bg-gray-300 dark:bg-gray-600'} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-card-light dark:focus:ring-offset-card-dark" 
+                                        role="switch" 
+                                        aria-checked="${user.pushNotificationsEnabled}">
+                                  <span class="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200 
+                                               ${user.pushNotificationsEnabled ? 'translate-x-5' : 'translate-x-0'}"></span>
+                                </button>
+                            </div>
+                             <div class="pt-3 border-t border-border-light dark:border-border-dark">
+                                 <button data-action="download-history" class="w-full text-left font-medium text-text-light dark:text-text-dark py-2 flex items-center hover:text-primary transition-colors"><i data-lucide="download" class="w-4 h-4 mr-2"></i>Download Payment History (PDF)</button>
+                             </div>
+                             <div class="pt-3 border-t border-border-light dark:border-border-dark">
+                                 <button data-view="${ViewType.Complaints}" class="w-full text-left font-medium text-text-light dark:text-text-dark py-2 flex items-center hover:text-primary transition-colors"><i data-lucide="message-square-warning" class="w-4 h-4 mr-2"></i>File a Complaint</button>
+                             </div>
+                        </div>
+                    </div>
+
+
                     <!-- FAQ -->
                     <div class="bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-md border border-border-light dark:border-border-dark">
                         <h3 class="font-semibold text-lg text-heading-light dark:text-heading-dark mb-3">${t('faq')}</h3>
@@ -1676,17 +1746,24 @@
                     <h2 class="text-2xl font-bold text-heading-light dark:text-heading-dark">Track Collection Vehicle</h2>
                     <div class="bg-card-light dark:bg-card-dark p-6 rounded-xl shadow-md border border-border-light dark:border-border-dark">
                         ${assignedStaff ? `
-                            <div class="text-center">
-                                <i data-lucide="truck" class="w-16 h-16 mx-auto text-primary"></i>
-                                <p class="mt-4 text-lg font-semibold text-heading-light dark:text-heading-dark">Your collection vehicle is on its route!</p>
-                                <p class="text-sm text-secondary-dark">Driver: ${assignedStaff.name}</p>
+                             <div class="flex items-center space-x-4 mb-4">
+                                ${assignedStaff.profilePicture ? `<img src="${assignedStaff.profilePicture}" alt="Driver" class="w-16 h-16 rounded-full object-cover">` : `<div class="w-16 h-16 rounded-full bg-secondary flex items-center justify-center font-bold text-white text-3xl">${getUserInitials(assignedStaff.name)}</div>`}
+                                <div>
+                                    <p class="text-lg font-semibold text-heading-light dark:text-heading-dark">${assignedStaff.name}</p>
+                                    <p class="text-sm text-secondary-dark">Your collection captain</p>
+                                </div>
                             </div>
-                            <div class="mt-6 pt-6 border-t border-border-light dark:border-border-dark text-center">
-                                <p class="text-sm text-text-light dark:text-text-dark">Last seen at ${formatDateTime(assignedStaff.lastLocationUpdate || assignedStaff.lastLoginTime)}</p>
-                                <a href="https://www.google.com/maps?q=${assignedStaff.lastLocation.lat},${assignedStaff.lastLocation.lng}" target="_blank" class="mt-4 inline-flex items-center justify-center w-full bg-primary text-white font-bold py-2.5 px-4 rounded-lg shadow-md hover:bg-primary-dark transition">
-                                    <i data-lucide="map" class="w-4 h-4 mr-2"></i> ${t('viewOnMap')}
-                                </a>
+                            <div class="text-sm text-text-light dark:text-text-dark space-y-2 mb-4">
+                                <p><strong>Status:</strong> <span class="text-success font-semibold">On Route</span></p>
+                                <p><strong>Estimated Arrival:</strong> ${Math.floor(Math.random() * 10) + 5}-${Math.floor(Math.random() * 10) + 15} minutes</p>
+                                <p><strong>Last Updated:</strong> ${formatDateTime(assignedStaff.lastLocationUpdate)}</p>
                             </div>
+                            <div class="w-full h-64 rounded-lg overflow-hidden border border-border-light dark:border-border-dark">
+                               <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=${assignedStaff.lastLocation.lat},${assignedStaff.lastLocation.lng}&z=15&output=embed"></iframe>
+                            </div>
+                            <a href="https://www.google.com/maps?q=${assignedStaff.lastLocation.lat},${assignedStaff.lastLocation.lng}" target="_blank" class="mt-4 inline-flex items-center justify-center w-full bg-primary text-white font-bold py-2.5 px-4 rounded-lg shadow-md hover:bg-primary-dark transition">
+                                <i data-lucide="map" class="w-4 h-4 mr-2"></i> ${t('viewOnMap')}
+                            </a>
                         ` : `
                             <div class="text-center">
                                 <i data-lucide="info" class="w-16 h-16 mx-auto text-warning"></i>
@@ -2238,6 +2315,23 @@
                     case 'reject-payment': handlePaymentApproval(element.dataset.paymentId, false); break;
                     case 'view-sell-chat': renderSellRequestChatModal(element.dataset.requestId); break;
                     case 'complete-sell-request': handleCompleteSellRequest(element.dataset.requestId); break;
+                    case 'log-waste': handleWasteLog(element.dataset.wasteType); break;
+                    case 'download-history': handleDownloadHistory(); break;
+                    case 'toggle-push': handleTogglePush(); break;
+                    case 'watch-ad-btn': renderModal('Advertisement', '<video width="100%" autoplay controls><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">Your browser does not support the video tag.</video>'); break;
+                    case 'admin-edit-user':
+                        const userToEdit = AppState.users.find(u => u.householdId === element.dataset.userId);
+                        if(userToEdit) renderAdminUserEditModal(userToEdit);
+                        break;
+                    case 'admin-toggle-block':
+                        const userToBlock = AppState.users.find(u => u.householdId === element.dataset.userId);
+                        if (userToBlock) {
+                            userToBlock.status = userToBlock.status === 'active' ? 'blocked' : 'active';
+                            AppState.updateUser(userToBlock);
+                            render();
+                        }
+                        break;
+                    case 'admin-message-user': alert('Messaging feature coming soon!'); break;
                 }
             }
             
@@ -2594,6 +2688,121 @@
                     if(isApproved) {
                         AppState.updateUser({ ...user, outstandingBalance: Math.max(0, user.outstandingBalance - payment.amount) });
                     }
+                    render();
+                }
+            }
+            
+            function handleWasteLog(wasteType) {
+                const user = AppState.currentUser();
+                const todayStr = new Date().toISOString().split('T')[0];
+                const hasLoggedToday = AppState.wasteLogs.some(log => 
+                    log.householdId === user.householdId && 
+                    new Date(log.date).toISOString().split('T')[0] === todayStr
+                );
+
+                if (hasLoggedToday) {
+                    alert("You have already logged your waste for today.");
+                    return;
+                }
+
+                const newLog = { householdId: user.householdId, type: wasteType, date: new Date() };
+                AppState.addWasteLog(newLog);
+
+                let consecutiveMixedLogs = user.consecutiveMixedLogs || 0;
+                let outstandingBalance = user.outstandingBalance;
+
+                if (wasteType === 'Mixed') {
+                    consecutiveMixedLogs++;
+                } else {
+                    consecutiveMixedLogs = 0; // Reset counter
+                }
+
+                if (consecutiveMixedLogs >= 3) {
+                    outstandingBalance += 100;
+                    consecutiveMixedLogs = 0; // Reset after fine
+                    const fineMessage = 'A fine of ₹100 has been added to your account for logging mixed waste on three consecutive days. Please ensure proper segregation.';
+                    AppState.addMessage(user.householdId, fineMessage);
+                    alert(fineMessage);
+                }
+
+                AppState.updateUser({ ...user, consecutiveMixedLogs, outstandingBalance });
+                render();
+            }
+
+            function handleDownloadHistory() {
+                const user = AppState.currentUser();
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                const oneYearAgo = new Date();
+                oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+
+                const userPayments = AppState.payments
+                    .filter(p => p.householdId === user.householdId && new Date(p.date) >= oneYearAgo)
+                    .sort((a,b) => new Date(b.date) - new Date(a.date));
+
+                doc.setFontSize(18);
+                doc.text('Payment History', 14, 22);
+                doc.setFontSize(11);
+                doc.text(`User: ${user.name} (${user.householdId})`, 14, 30);
+                doc.text(`Date Generated: ${new Date().toLocaleDateString()}`, 14, 36);
+
+                if (userPayments.length === 0) {
+                    doc.text('No payments found in the last year.', 14, 50);
+                } else {
+                    const tableData = userPayments.map(p => [
+                        p.id,
+                        new Date(p.date).toLocaleDateString(),
+                        `Rs. ${p.amount.toFixed(2)}`,
+                        p.status
+                    ]);
+
+                    doc.autoTable({
+                        startY: 40,
+                        head: [['Transaction ID', 'Date', 'Amount', 'Status']],
+                        body: tableData,
+                    });
+                }
+                
+                doc.save(`EcoTrack_Payment_History_${user.householdId}.pdf`);
+            }
+
+            function handleTogglePush() {
+                const user = AppState.currentUser();
+                const updatedUser = { ...user, pushNotificationsEnabled: !user.pushNotificationsEnabled };
+                AppState.updateUser(updatedUser);
+                render();
+            }
+
+            function renderAdminUserEditModal(userToEdit) {
+                 const t = AppState.t.bind(AppState);
+                const content = `
+                <form id="admin-edit-user-form" data-user-id="${userToEdit.householdId}" class="space-y-4 text-sm">
+                     <div><label for="admin-edit-name" class="block font-medium">${t('fullName')}</label><input type="text" id="admin-edit-name" value="${escapeHTML(userToEdit.name)}" required class="mt-1 w-full p-2 bg-transparent border rounded-md"></div>
+                     <div><label for="admin-edit-email" class="block font-medium">${t('emailAddress')}</label><input type="email" id="admin-edit-email" value="${escapeHTML(userToEdit.email)}" required class="mt-1 w-full p-2 bg-transparent border rounded-md"></div>
+                     <div><label for="admin-edit-balance" class="block font-medium">${t('balance')}</label><input type="number" step="0.01" id="admin-edit-balance" value="${userToEdit.outstandingBalance}" required class="mt-1 w-full p-2 bg-transparent border rounded-md"></div>
+                     <button type="submit" class="w-full bg-primary text-white font-bold py-2.5 px-4 rounded-lg">${t('saveChanges')}</button>
+                </form>
+                `;
+                renderModal(`Edit User: ${userToEdit.name}`, content);
+                document.getElementById('admin-edit-user-form').onsubmit = handleAdminUserEditSubmit;
+            }
+
+            function handleAdminUserEditSubmit(e) {
+                e.preventDefault();
+                const form = e.target;
+                const userId = form.dataset.userId;
+                const user = AppState.users.find(u => u.householdId === userId);
+
+                if (user) {
+                    const updatedUser = {
+                        ...user,
+                        name: form.elements['admin-edit-name'].value,
+                        email: form.elements['admin-edit-email'].value,
+                        outstandingBalance: parseFloat(form.elements['admin-edit-balance'].value)
+                    };
+                    AppState.updateUser(updatedUser);
+                    closeModal();
                     render();
                 }
             }
